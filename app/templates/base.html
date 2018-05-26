@@ -1,0 +1,36 @@
+{% extends 'bootstrap/base.html' %}
+
+
+{% block navbar %}
+
+{% include 'navbar.html' %}
+
+{% endblock %}
+
+
+{%block styles %}
+  
+    {{super()}}
+
+    <!--Importing the simple mde css and  -->
+  {{ simplemde.css}}
+  {{ simplemde.js }}
+
+{% endblock %}
+
+<div class="container">
+    <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+    
+        {% block content %}
+
+        {% endblock %}
+</div>
