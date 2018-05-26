@@ -20,5 +20,27 @@ def login():
             login_user(user, Login.remember.data)
             return redirect(request.args.get('next') or url_for('main.index'))
         flash('Invalid, Try again')
-        
+
     return render_template('auth/login.html', Login = Login, title=title)
+
+
+
+@auth.route('/register', methods=['GET', 'POST'])
+def register():
+    title= "Register Account"
+    form = RegisterForm()
+
+    if form.validate_on_submit():
+        user = User(username = form.username.data, email = form.email.data, password = form.password.data, is_admin=False)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('auth.login'))
+
+    return render_template('auth/register.html', title=title, form= form)
+
+
+ 
+@auth.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('main.index'))
