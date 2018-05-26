@@ -68,4 +68,29 @@ def post():
     except:
         flash("Sorry you can NOT post more than 225 characters for now. We are aware of this situation and are currently working on this.")
         return redirect(url_for('main.post'))
+
+    return render_template('post.html', Post = Blog, title = title, posts = all, comment = Comments, allcomments = allcomments)
+
+
+
+@main.route('/post/<id>', methods=['POST','GET'])
+def fullpost(id):
+    
+    title= f'Posts' 
+    post = Post.query.filter_by(id=id).first()
+    Comments = CommentForm()
+    if Comments.validate_on_submit():
+        comment = Comment(comment = Comments.comment.data, post_id=id, commenter = Comments.commenter.data)
+        db.session.add(comment)
+        db.session.commit()
+        print(comment)
+        return redirect(url_for('main.fullpost', id=post.id))
+    allcomments = Comment.query.all()
+    postcomments = Comment.query.filter_by(post_id=id).all()
+     
+
+    return render_template('fullpost.html', title = title, post = post, comment = Comments, allcomments = allcomments, postcomments = postcomments)
+
             
+
+
