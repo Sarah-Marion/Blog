@@ -53,6 +53,7 @@ class Post(UserMixin, db.Model):
 
     __tablename__ = 'posts'
 
+    # add columns
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String)
     post = db.Column(db.String)
@@ -65,12 +66,15 @@ class Post(UserMixin, db.Model):
     def __repr__(self):
         return f'Post{self.post}'
 
+# Role class 
 class Role(UserMixin, db.Model):
     """ 
     class modelling the role of each user
     """
 
     __tablename__ = "roles"
+
+    # add columns
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String)
     
@@ -78,12 +82,15 @@ class Role(UserMixin, db.Model):
     def __repr__(self):
         return f'Post{self.name}'
 
+# comments
 class Comment(UserMixin, db.Model):
     """ 
     User comment model for each post
     """
 
     __tablename__ = "comments"
+
+    # add columns
     id=db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String)
     commenter =db.Column(db.String)
@@ -92,3 +99,26 @@ class Comment(UserMixin, db.Model):
     
     def __repr__(self):
         return f'Post{self.comment}'
+
+
+class Subscribers(UserMixin, db.Model):
+    
+    __tablename__ = "subscribers"
+
+    # add columns 
+    id= db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String, unique=True)
+
+    def __repr__(self):
+        return f'Subscribers{self.email}'
+
+class MyModelView(ModelView):
+    def is_accessible(self):
+        return False
+
+            
+
+admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Post, db.session))
+admin.add_view(ModelView(Comment, db.session))
+admin.add_view(ModelView(Subscribers, db.session))        
