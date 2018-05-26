@@ -43,3 +43,52 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User{self.username}'
+
+
+# Blog Post class
+class Post(UserMixin, db.Model):
+    """ 
+    class modelling the posts
+    """
+
+    __tablename__ = 'posts'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    post = db.Column(db.String)
+    image_name = db.Column(db.String)
+    image_url = db.Column(db.String)
+    timeposted = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    comments = db.relationship('Comment', backref='post', lazy='dynamic')
+
+    def __repr__(self):
+        return f'Post{self.post}'
+
+class Role(UserMixin, db.Model):
+    """ 
+    class modelling the role of each user
+    """
+
+    __tablename__ = "roles"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    
+
+    def __repr__(self):
+        return f'Post{self.name}'
+
+class Comment(UserMixin, db.Model):
+    """ 
+    User comment model for each post
+    """
+
+    __tablename__ = "comments"
+    id=db.Column(db.Integer, primary_key=True)
+    comment = db.Column(db.String)
+    commenter =db.Column(db.String)
+    users = db.relationship('User', backref='author', lazy='dynamic')
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+    
+    def __repr__(self):
+        return f'Post{self.comment}'
