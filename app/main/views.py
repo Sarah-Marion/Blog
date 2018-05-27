@@ -9,7 +9,7 @@ from .email import mail_message
 from ..models import User, Post, Role, Comment, Subscribers
 from datetime import datetime
 
-@main.route('/',methods=['POST','GET'])
+@main.route('/',methods=['GET', 'POST'])
 def index():
     title= "Blog On | Home "
     all = Post.query.all()
