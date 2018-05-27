@@ -1,0 +1,15 @@
+body {
+    background: url('../images/error_404.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+    color: #BCE7F0  
+  }
+  
+  .fof {
+    position: absolute;
+    bottom: 0;
+    right: 25%
+  }

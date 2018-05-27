@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Eater');
+
+.header{
+    height:100vh;
+    background-image: url('../images/guitar.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+    background-attachment: fixed;
+    margin-top:-1.5%;
+}
+.intro{
+    position:absolute;
+    left:30%;
+    top:35%;
+    font-family: cursive;
+    font-size:150%;
+    text-align:center;
+}
+button{
+    color:white;
+    background-color:#AA076B;
+    border:0%;
+    border-radius:99em;
+}
+a{
+    color:black;
+}
+.article{
+    width:100%;
+    text-align:center;
+}
+.wrap{
+    border:0.5px black solid;
+    margin:3%;
+    padding:2%;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.75), 0 6px 10px rgba(0,0,0,0.75);
+    border-radius: 2%;
+    
+    
+}
+
+.posts{
+    background-image: url('../images/bob.jpeg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    height:100vh;
+    margin-bottom:-5%;
+}

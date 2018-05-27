@@ -1,0 +1,24 @@
+#form{
+    border:2px #AA076B;
+    padding:2%;
+    padding-top:10%;
+    margin-top:5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2%;
+}
+
+*{
+    margin:0;
+}.container-fluid{
+    background-image: url('../images/glass.jpeg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    margin-top:-1.5%;
+
+}
+.col-centered{
+    margin:0 auto;
+    float:none;
+}
