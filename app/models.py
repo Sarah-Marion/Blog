@@ -91,9 +91,9 @@ class Comment(UserMixin, db.Model):
     __tablename__ = "comments"
 
     # add columns
-    id=db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String)
-    commenter =db.Column(db.String)
+    commenter = db.Column(db.String)
     users = db.relationship('User', backref='author', lazy='dynamic')
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
     
@@ -102,7 +102,7 @@ class Comment(UserMixin, db.Model):
 
 
 class Subscribers(UserMixin, db.Model):
-    
+
     __tablename__ = "subscribers"
 
     # add columns 
