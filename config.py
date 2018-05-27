@@ -6,7 +6,7 @@ class Config:
     General configuration parent class
     """
     #pass
-    SECRET_KEY = os.environ.get("SECRET_KEY")
+    # SECRET_KEY = os.environ.get("SECRET_KEY")
     SECRET_KEY="5047aa27156e4b7f0a8c7dd7dc6ef2afa449fbd0b78226bfd538d03a6f2d2514b5dea9412baff14ff535f6f9b1db6e9260c6"
     DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
@@ -24,6 +24,8 @@ class Config:
     MAIL_USE_SSL = True
     MAIL_USERNAME = os.environ.get("MAIL_USERNAME")
     MAIL_PASSWORD = os.environ.get("MAIL_PASSWORD")
+    SENDER_EMAIL = 'devsarahmarion@gmail.com'
+
 
     @staticmethod
     def init_app(app):
@@ -61,6 +63,7 @@ class DevConfig(Config):
         Config: The parent configuration class with General
         configuration settings
     """
+    DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     DEBUG = True
 
