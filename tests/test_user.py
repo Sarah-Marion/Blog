@@ -1,6 +1,7 @@
 import unittest
 from app import db
 from app.models import User, Post, Comment, Subscribers
+from os import urandom
 
 
 class UserModelTest(unittest.TestCase):
@@ -12,7 +13,7 @@ class UserModelTest(unittest.TestCase):
         """
         Set up password method that will run before every test
         """
-        self.new_user = User(password = 'koko')
+        self.new_user = User(password = 'secret')
 
 
     def test_password_setter(self):
@@ -30,4 +31,4 @@ class UserModelTest(unittest.TestCase):
         """
         Test to make sure that password_hash_checker works
         """
-        self.assertTrue(self.new_user.verify_password('koko'))
+        self.assertTrue(self.new_user.verify_password('secret'))
