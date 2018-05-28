@@ -48,8 +48,8 @@ As a user I would like:
 ### Prerequisites
 
 > * Internet access
-> * ```git clone https://github.com/sarah-marion/Pitches.git```
-> * ```cd Pitches```
+> * ```git clone https://github.com/sarah-marion/Blog.git```
+> * ```cd Blog```
 
 #### To install a virtual environment
 
