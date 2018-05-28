@@ -6,11 +6,9 @@ class Config:
     General configuration parent class
     """
     #pass
-    # SECRET_KEY = os.environ.get("SECRET_KEY")
-    SECRET_KEY="5047aa27156e4b7f0a8c7dd7dc6ef2afa449fbd0b78226bfd538d03a6f2d2514b5dea9412baff14ff535f6f9b1db6e9260c6"
+    SECRET_KEY = os.environ.get("SECRET_KEY")
     # DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
     # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://postgres:postgres@localhost/pblog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST = 'app/static/photos'
     ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD')
@@ -50,8 +48,8 @@ class ProdConfig(Config):
         configuration settings
     """
     # pass
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
-    DEBUG = True
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    # DEBUG = True
 
 
 
@@ -63,15 +61,15 @@ class DevConfig(Config):
         Config: The parent configuration class with General
         configuration settings
     """
-    # DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD")
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     DEBUG = True
 
 
 
 class TestConfig(Config):
-    # SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
-    pass
+    SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
+    # pass
 
 
 config_options = {
