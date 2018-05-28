@@ -11,7 +11,7 @@ from flask_migrate import Migrate, MigrateCommand
 app = create_app('production')
 
 manager = Manager(app)
-manager.add_command('server', Server(port=4200))
+manager.add_command('server', Server)
 
 migrate = Migrate(app, db)
 manager.add_command('db', MigrateCommand)
