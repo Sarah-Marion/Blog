@@ -9,13 +9,11 @@
 
 
 {%block styles %}
-  
     {{super()}}
     <link rel="stylesheet" href="{{url_for('static',filename='CSS/index.css')}}">
     <!--Importing the simple mde css and  -->
   {{ simplemde.css}}
   {{ simplemde.js }}
-
 {% endblock %}
 
 <div class="container">
@@ -29,8 +27,4 @@
     </ul>
     {% endif %}
     {% endwith %}
-    
-        {% block content %}
-
-        {% endblock %}
 </div>

@@ -2,11 +2,10 @@
 
 .header{
     height:100vh;
-    background-image: url('../images/guitar.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0),rgba(0, 0, 0, 0),rgb(253, 253, 253)) , url('../images/guitar.jpg');
     background-size:cover;
     background-repeat: no-repeat;
-    
-    background-attachment: fixed;
+    background-attachment: scroll ;
     margin-top:-1.5%;
 }
 .intro{
@@ -29,6 +28,7 @@ a{
 .article{
     width:100%;
     text-align:center;
+    align-items: center;
 }
 .wrap{
     border:0.5px black solid;
@@ -36,14 +36,20 @@ a{
     padding:2%;
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.75), 0 6px 10px rgba(0,0,0,0.75);
     border-radius: 2%;
-    
-    
 }
-
 .posts{
-    background-image: url('../images/bob.jpeg');
+    /* background-image: url('../images/google.gif'); */
     background-size:cover;
     background-repeat: no-repeat;
     height:100vh;
     margin-bottom:-5%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+.navbar-light{
+    background-color: #AA076B !important;
+}
+#submit{
+    background-color: #AA076B;
 }

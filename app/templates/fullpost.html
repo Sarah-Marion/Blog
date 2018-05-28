@@ -14,27 +14,20 @@
     </div>
 </div>
 
-<div class="conatainer">
+<div class="container">
     <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-            
             {% import 'bootstrap/wtf.html' as wtf %}
             {{wtf.quick_form(comment)}}
-            <h3>Comments</h3>
+            <br>
+            <h3>COMMENTS</h3>
+            <hr>
             {% for comment in postcomments %}
-            
-           
-            
             <i><sub>{{comment.commenter}} says:</sub></i>
             <br> {{comment.comment}}
             <hr>
-             
-            
-           
             {% endfor %}
-
-           
-
+        </div>
     </div>
 </div>
 {% endblock %}
