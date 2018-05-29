@@ -61,7 +61,7 @@ def post():
     Blog = PostForm()
     # try:
     if Blog.validate_on_submit():
-        post = Post( title = Blog.title.data ,post = Blog.Entry.data, author = current_user, timeposted = datetime.utcnow() )
+        post = Post( title = Blog.title.data ,post = Blog.Entry.data, user_id = current_user.id, timeposted = datetime.utcnow() )
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('main.post'))
