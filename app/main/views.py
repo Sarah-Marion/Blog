@@ -59,15 +59,15 @@ def post():
     allcomments = Comment.query.all()
     title = "Post Article"
     Blog = PostForm()
-    try:
-        if Blog.validate_on_submit():
-            post = Post( title = Blog.title.data ,post = Blog.Entry.data, author = current_user, timeposted = datetime.utcnow() )
-            db.session.add(post)
-            db.session.commit()
-            return redirect(url_for('main.post'))
-    except:
-        flash("Sorry you can NOT post more than 225 characters for now. We are aware of this situation and are currently working on this.")
+    # try:
+    if Blog.validate_on_submit():
+        post = Post( title = Blog.title.data ,post = Blog.Entry.data, author = current_user, timeposted = datetime.utcnow() )
+        db.session.add(post)
+        db.session.commit()
         return redirect(url_for('main.post'))
+    # except:
+    #     flash("Sorry you can NOT post more than 225 characters for now. We are aware of this situation and are currently working on this.")
+    #     return redirect(url_for('main.post'))
 
     return render_template('post.html', Post = Blog, title = title, posts = all, comment = Comments, allcomments = allcomments)
 
