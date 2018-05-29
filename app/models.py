@@ -22,6 +22,12 @@ class User(UserMixin,db.Model):
     name = db.Column(db.String)
     username = db.Column(db.String, unique=True, index=True)
     email = db.Column(db.String, unique=True, index=True)
+
+    posts = db.relationship('Post', backref='user', lazy='dynamic')
+    is_admin = db.Column(db.Boolean)
+    comments = db.relationship('Comment', backref='user', lazy='dynamic')
+    # comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'))
+
     pass_secure = db.Column(db.String)
 
 
@@ -35,11 +41,6 @@ class User(UserMixin,db.Model):
 
     def verify_password(self, password):
         return check_password_hash(self.pass_secure, password)
-
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
-    is_admin = db.Column(db.Boolean)
-    comment_id = db.Column(db.Integer, db.ForeignKey('comments.id'))
-    
 
     def __repr__(self):
         return f'User{self.username}'
@@ -60,6 +61,7 @@ class Post(UserMixin, db.Model):
     image_name = db.Column(db.String)
     image_url = db.Column(db.String)
     timeposted = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     comments = db.relationship('Comment', backref='post', lazy='dynamic')
 
@@ -94,7 +96,9 @@ class Comment(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String)
     commenter = db.Column(db.String)
-    users = db.relationship('User', backref='author', lazy='dynamic')
+
+    # users = db.relationship('User', backref='author', lazy='dynamic')
+    users_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
     
     def __repr__(self):
