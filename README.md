@@ -16,11 +16,13 @@
 
 As a user I would like:
 
-<!-- > * to view the different categories.
-> * to see the pitches other people have posted.
-> * to comment on the different pitches and leave feedback.
-> * to submit a pitch in any category.
-> * to vote on the pitch they liked and give it a downvote or upvote. -->
+> * to view the blog posts submitted
+> * to comment on blog posts
+> * to view the most recent posts
+> * to be alerted when a new post is made by joining a subscription.
+> * to sign in to the blog.
+> * to create a blog from the application.
+> * to delete comments that I find insulting or degrading.
 
 ## How to use it
 
