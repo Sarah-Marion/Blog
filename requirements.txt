@@ -51,7 +51,6 @@ Pillow==4.1.1
 psycopg2==2.7.4
 psycopg2-binary==2.7.4
 pycparser==2.18
-pycrypto==2.6.1
 # pycups==1.9.73
 pyfiglet==0.7.5
 # pygobject==3.24.1
