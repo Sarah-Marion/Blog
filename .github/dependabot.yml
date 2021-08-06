@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "02:00"
+    timezone: Africa/Nairobi
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: mako
+    versions:
+    - 1.1.3
+  - dependency-name: httplib2
+    versions:
+    - 0.18.0
+  - dependency-name: jinja2
+    versions:
+    - 2.10.1
