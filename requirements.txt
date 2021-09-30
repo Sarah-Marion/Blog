@@ -54,7 +54,7 @@ pycparser==2.18
 # pycups==1.9.73
 pyfiglet==0.7.5
 # pygobject==3.24.1
-pylint==1.9.1
+pylint==2.11.1
 pyperclip==1.6.0
 # python-apt==1.4.0b3
 python-dateutil==2.7.3
@@ -93,7 +93,7 @@ markdown2==2.4.0
 MarkupSafe==1.0
 mccabe==0.6.1
 psycopg2-binary==2.7.4
-pylint==1.9.1
+pylint==2.11.1
 python-dateutil==2.7.3
 python-editor==1.0.3
 singledispatch==3.4.0.3
