@@ -50,7 +50,7 @@ pexpect==4.2.1
 Pillow==8.1.1
 psycopg2==2.7.4
 psycopg2-binary==2.7.4
-pycparser==2.18
+pycparser==2.21
 # pycups==1.9.73
 pyfiglet==0.7.5
 # pygobject==3.24.1
