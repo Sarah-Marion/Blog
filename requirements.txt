@@ -1,4 +1,4 @@
-alembic==0.9.9
+alembic==1.7.7
 astroid==1.6.4
 backports.functools-lru-cache==1.5
 click==6.7
